@@ -6,7 +6,7 @@ import java.util.*;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 
-public class Streaming {
+public class StreamingExample {
     private final class Transaction {
         private final Instant timestamp;
 
