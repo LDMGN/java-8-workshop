@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/1/demo/parameter-reflection/requestparameters")
 public class ParameterNamesController {
     @RequestMapping
-    public void demoOld(@RequestParam("name") final String name) { }
+    public void demoOld(@RequestParam("name") final String name) {
+    }
 
     @RequestMapping
-    public void demoNew(@RequestParam final String name) { }
+    public void demoNew(@RequestParam final String name) {
+    }
 }
 
