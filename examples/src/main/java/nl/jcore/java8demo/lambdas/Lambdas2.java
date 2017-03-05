@@ -3,11 +3,13 @@ package nl.jcore.java8demo.lambdas;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 public class Lambdas2 {
-    public void consumerExample() {
-        final List<Integer> numbers = new ArrayList<>();
+    public void consumerExample(final List<Integer> numbers) {
+        numbers.forEach((Integer number) -> System.out.println(number));
+        numbers.forEach((number) -> System.out.println(number));
         numbers.forEach(number -> System.out.println(number));
         numbers.forEach(System.out::println);
     }
@@ -20,20 +22,16 @@ public class Lambdas2 {
         }).start();
     }
 
-    public void streamExample() {
-        final Stream<String> stringCollection = Stream.empty();
-        stringCollection
+    public List<Integer> streamExample(final List<String> list) {
+        return list.stream()
                 .map(Integer::parseInt)
                 .filter(i -> i > 10)
-                .filter(i -> {
-                    return i > 10;
-                })
-                .map(i -> i * 10);
+                .map(i -> i * 10)
+                .collect(toList());
     }
 
-    public void optionalExample() {
-        final Optional<String> stringOptional = Optional.empty();
-        stringOptional
+    public Optional<String> optionalExample(final String in) {
+        return Optional.ofNullable(in)
                 .filter(String::isEmpty)
                 .map(s -> "Value: " + s);
     }
