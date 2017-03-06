@@ -2,7 +2,9 @@ package nl.jcore.java8workshop;
 
 import org.junit.After;
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -13,15 +15,22 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Exercise001LambdaTest {
     @Test
-    public void testSupplier() {
+    public void test001OldSkoolSupplier() {
+        assertNotNull("Please implement Exercise001Lambda::supplier", Exercise001Lambda.oldSkoolSupplier());
+        assertEquals("Hello Java 8", Exercise001Lambda.oldSkoolSupplier().get());
+    }
+
+    @Test
+    public void test002Supplier() {
         assertNotNull("Please implement Exercise001Lambda::supplier", Exercise001Lambda.supplier());
         assertEquals("Hello Java 8", Exercise001Lambda.supplier().get());
     }
 
     @Test
-    public void testConsumer() {
+    public void test003Consumer() {
         assertNotNull("Please implement Exercise001Lambda::consumer", Exercise001Lambda.consumer());
 
         /* Arrange. */
@@ -38,7 +47,7 @@ public class Exercise001LambdaTest {
     }
 
     @Test
-    public void testFunction() {
+    public void test004Function() {
         assertNotNull("Please implement Exercise001Lambda::functionToString", Exercise001Lambda.functionToString());
         assertEquals("0", Exercise001Lambda.functionToString().apply(0));
         assertEquals("1", Exercise001Lambda.functionToString().apply(1));
@@ -46,7 +55,7 @@ public class Exercise001LambdaTest {
     }
 
     @Test
-    public void testPredicate(){
+    public void test005Predicate(){
         assertNotNull(Exercise001Lambda.predicateIsEven());
         assertTrue(Exercise001Lambda.predicateIsEven().test(0));
         assertFalse(Exercise001Lambda.predicateIsEven().test(1));

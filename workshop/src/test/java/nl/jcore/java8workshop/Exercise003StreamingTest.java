@@ -1,6 +1,8 @@
 package nl.jcore.java8workshop;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,20 +11,21 @@ import java.util.stream.IntStream;
 
 import static org.junit.Assert.assertEquals;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Exercise003StreamingTest {
     @Test
-    public void testMultiplyByTwo() {
+    public void test001MultiplyByTwo() {
         assertEquals(Arrays.asList(0, 2, 4, 6), Exercise003Streaming.multiplyByTwo(getRange(0, 3)));
     }
 
     @Test
-    public void testGetStringValues() {
+    public void test002GetStringValues() {
         final List<String> list = Arrays.asList("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
         assertEquals(list, Exercise003Streaming.getStringValues(getRange(0, 10)));
     }
 
     @Test
-    public void testIntstreamSumOfEvens() {
+    public void test003IntstreamSumOfEvens() {
         assertEquals(90, Exercise003Streaming.sumOfEvenNumbersInCollection(getRange(0, 19)));
     }
 

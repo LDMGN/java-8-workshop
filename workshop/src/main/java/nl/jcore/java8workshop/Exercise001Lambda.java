@@ -9,6 +9,18 @@ public class Exercise001Lambda {
     /**
      * @return supplier which returns a String containing "Hello Java 8" (without quotes)
      */
+    static Supplier<String> oldSkoolSupplier() {
+        return new Supplier() {
+            @Override
+            public String get() {
+                return "Hello Java 8";
+            }
+        };
+    }
+
+    /**
+     * @return supplier which returns a String containing "Hello Java 8" (without quotes)
+     */
     static Supplier<String> supplier() {
         return null;
     }
