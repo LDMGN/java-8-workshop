@@ -1,7 +1,5 @@
 package nl.jcore.java8workshop;
 
-import jdk.nashorn.internal.ir.annotations.Immutable;
-
 /**
  * To make the test corresponding to this class pass, add
  * <compilerArgument>-parameters</compilerArgument> to the
@@ -12,7 +10,7 @@ import jdk.nashorn.internal.ir.annotations.Immutable;
  * Maven goal "clean" and run the plugins compiler:compile
  * and compiler:testCompile.
  */
-@Immutable
+/* @Immutable */
 public final class Exercise002ParameterNamesDto {
     private final int id;
     private final String name;
