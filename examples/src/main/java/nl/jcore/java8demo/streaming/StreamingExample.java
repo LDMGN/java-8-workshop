@@ -85,10 +85,8 @@ public class StreamingExample {
     }
 
     public Map<String, Transaction> java8StreamingMap() {
-        final Comparator<User> compareLastTransactionTimestamp = (u1, u2) ->
-                Long.compare(getLastTransaction(u1).getTimestamp().toEpochMilli(),
-                        getLastTransaction(u2).getTimestamp().toEpochMilli()
-                );
+        final Comparator<User> compareLastTransactionTimestamp =
+                Comparator.comparingLong(u -> getLastTransaction(u).getTimestamp().toEpochMilli());
         return getUsers().stream()
                 .filter(u -> u.getAge() >= 18)
                 .filter(User::hasTransactions)

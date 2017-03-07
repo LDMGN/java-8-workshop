@@ -1,8 +1,5 @@
 package nl.jcore.java8workshop;
 
-import com.sun.istack.internal.NotNull;
-import com.sun.istack.internal.Nullable;
-
 import java.util.Optional;
 
 public class Exercise004Optional {
@@ -16,7 +13,7 @@ public class Exercise004Optional {
      * express that we do not expect a null value and that
      * execution should halt if it does occur. Fail fast.
      */
-    static Optional<String> returnOptional(@NotNull final String input) {
+    static Optional<String> returnOptional(final String input) {
         return null;
     }
 
@@ -30,7 +27,7 @@ public class Exercise004Optional {
      * The code working with this Optional will have to
      * handle an Optional.empty() appropriately.
      */
-    static Optional<String> nullSafeOptional(@Nullable final String input) {
+    static Optional<String> nullSafeOptional(final String input) {
         return null;
     }
 
@@ -47,7 +44,7 @@ public class Exercise004Optional {
      * lambda (λ). Map(λ) returns an Optional wrapping
      * the outcome of the lambda.
      */
-    static Optional<String> nullSafeOptional_EmptyOptionalIfEmptyString(@Nullable final String input) {
+    static Optional<String> nullSafeOptional_EmptyOptionalIfEmptyString(final String input) {
         return null;
     }
 }

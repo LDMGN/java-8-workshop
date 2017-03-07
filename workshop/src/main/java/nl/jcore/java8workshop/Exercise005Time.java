@@ -18,7 +18,7 @@ public class Exercise005Time {
      *
      * A great thing about the java.time.* classes are
      * their descriptive names. The intent of the method
-     * below chould be clear from just it's parameters
+     * below should be clear from just its parameters
      * and return type. The classes' names indicate what
      * information they hold and therefore what purpose
      * they serve.

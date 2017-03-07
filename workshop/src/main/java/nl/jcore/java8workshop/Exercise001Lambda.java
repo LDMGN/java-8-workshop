@@ -22,7 +22,7 @@ public class Exercise001Lambda {
      * Return a Predicate which evaluates whether an input number is even
      * <p>
      * This method could be (re-)used in lambda calculations everywhere,
-     * e.g. numbers.stream().map(predicateIsEven()).collect();
+     * e.g. numbers.stream().filter(predicateIsEven()).collect();
      */
     static Predicate<Integer> predicateIsEven() {
         /* A number is even when its remainder for modulo 2 (i % 2) is equal to zero. */
