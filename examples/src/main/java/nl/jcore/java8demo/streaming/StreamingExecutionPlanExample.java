@@ -9,7 +9,7 @@ public class StreamingExecutionPlanExample {
         final List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
         final List<String> output = numbers.stream()
                 .filter(i -> i % 2 == 0)
-                .sorted((i1, i2) -> i2.compareTo(i1)) // Alternative: .sorted(Comparator.reverseOrder())
+                .sorted((i1, i2) -> i2.compareTo(i1))
                 .map(String::valueOf)
                 .limit(2)
                 .collect(Collectors.toList());

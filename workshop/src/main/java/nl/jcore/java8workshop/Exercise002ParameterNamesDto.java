@@ -10,7 +10,6 @@ package nl.jcore.java8workshop;
  * Maven goal "clean" and run the plugins compiler:compile
  * and compiler:testCompile.
  */
-/* @Immutable */
 public final class Exercise002ParameterNamesDto {
     private final int id;
     private final String name;
