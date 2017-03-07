@@ -1,7 +1,12 @@
 package nl.jcore.java8demo.streaming;
 
 import java.time.Instant;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class StreamingExample {
@@ -63,12 +68,17 @@ public class StreamingExample {
     }
 
     public Map<String, Transaction> java7StreamingMapEquivalent() {
-        final Map<String, Transaction> result = new HashMap<>();
+        final Map<Long, User> sortedUsers = new TreeMap<>();
         for (final User user : getUsers()) {
             if (user.age >= 18 && user.hasTransactions()) {
-                final List<Transaction> transactions = user.transactions;
-                result.put(user.getName(), transactions.get(transactions.size() - 1));
+                sortedUsers.put(getLastTransaction(user).getTimestamp().toEpochMilli(), user);
             }
+        }
+        final Map<String, Transaction> result = new HashMap<>();
+        final ArrayList<Long> keys = new ArrayList<>(sortedUsers.keySet());
+        for (int i = keys.size() - 1; i >= 0; i--) {
+            final User user = sortedUsers.get(i);
+            result.put(user.getName(), getLastTransaction(user));
             if (result.size() >= 10) {
                 break;
             }
