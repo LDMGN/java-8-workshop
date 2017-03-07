@@ -6,6 +6,7 @@ public interface DefaultMethodExample {
     void demonstrate();
 
     default void demonstrateDefault() {
+        final String assignmentVar = "ABC";
     }
 
     default String demonstrateDefaultB() {

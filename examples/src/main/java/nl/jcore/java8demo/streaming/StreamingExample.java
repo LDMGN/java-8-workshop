@@ -2,9 +2,7 @@ package nl.jcore.java8demo.streaming;
 
 import java.time.Instant;
 import java.util.*;
-
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toMap;
+import java.util.stream.Collectors;
 
 public class StreamingExample {
     private final class Transaction {
@@ -83,7 +81,7 @@ public class StreamingExample {
                 .filter(u -> u.getAge() >= 18)
                 .map(User::getName)
                 .limit(10)
-                .collect(toList());
+                .collect(Collectors.toList());
     }
 
     public Map<String, Transaction> java8StreamingMap() {
@@ -96,7 +94,7 @@ public class StreamingExample {
                 .filter(User::hasTransactions)
                 .sorted(compareLastTransactionTimestamp)
                 .limit(10)
-                .collect(toMap(User::getName, this::getLastTransaction, (v1, v2) -> v1, LinkedHashMap::new));
+                .collect(Collectors.toMap(User::getName, this::getLastTransaction));
     }
 
     private Transaction getLastTransaction(final User user) {
