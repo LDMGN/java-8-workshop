@@ -47,6 +47,8 @@ public class Exercise003Streaming {
     /**
      * Return a list of addresses of users. Note that some
      * users don't have an address.
+     * Addresses should be in the format
+     * "street<space>housenumber" (without quotes).
      */
     static List<String> getAddressesOfUsers(final List<User> users) {
         return null;

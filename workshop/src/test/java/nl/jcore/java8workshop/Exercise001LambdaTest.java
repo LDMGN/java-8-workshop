@@ -4,7 +4,6 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.function.Consumer;
 
@@ -12,6 +11,8 @@ import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Exercise001LambdaTest {
@@ -47,7 +48,7 @@ public class Exercise001LambdaTest {
         /* Check for Java < 8 solution. */
         assertTrue(pleaseImplement(method), WorkshopUtils.isLambda(Exercise001Lambda.functionToString()));
 
-                /* Test functionality. */
+        /* Test functionality. */
         assertEquals("0", Exercise001Lambda.functionToString().apply(0));
         assertEquals("1", Exercise001Lambda.functionToString().apply(1));
         assertEquals("12", Exercise001Lambda.functionToString().apply(12));
@@ -76,16 +77,14 @@ public class Exercise001LambdaTest {
         assertTrue(pleaseImplement(method), WorkshopUtils.isLambda(Exercise001Lambda.consumer()));
 
         /* Test functionality. */
-        final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-        final String input = "FooBar";
+        final PrintStream out = mock(PrintStream.class);
+        System.setOut(out);
 
-        /* Act. */
+        final String input = "FooBar";
         final Consumer<String> consumer = Exercise001Lambda.consumer();
         consumer.accept(input);
 
-        /* Assert. */
-        assertEquals(input.trim(), outContent.toString().trim());
+        verify(out).println(input);
     }
 
     private String pleaseImplement(final String methodStringReference) {

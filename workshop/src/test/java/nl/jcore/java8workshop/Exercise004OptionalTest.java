@@ -74,14 +74,11 @@ public class Exercise004OptionalTest {
     }
 
     private void test008IfPresent(final Optional<String> input) {
-                /* Arrange. */
         final PrintStream out = mock(PrintStream.class);
         System.setOut(out);
 
-        /* Act. */
         Exercise004Optional.printValue(input);
 
-        /* Assert. */
         if (!input.isPresent()) {
             verifyZeroInteractions(out);
         } else {
