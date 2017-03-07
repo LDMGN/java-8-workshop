@@ -20,7 +20,7 @@ public class Exercise001Lambda {
 
     /**
      * Return a Predicate which evaluates whether an input number is even
-     * <p>
+     *
      * This method could be (re-)used in lambda calculations everywhere,
      * e.g. numbers.stream().filter(predicateIsEven()).collect();
      */
@@ -38,7 +38,7 @@ public class Exercise001Lambda {
 
     /**
      * Return a Supplier which returns a String containing "Hello Java 8" (without quotes)
-     * <p>
+     *
      * When we need an object, such as the "Hello Java 8" String, we could pass it around
      * in our code. Using lambdas, we instead pass around a Supplier object, which serves
      * as a factory for these objects. Two advantages:
@@ -52,7 +52,7 @@ public class Exercise001Lambda {
 
     /**
      * Return a Consumer which prints its String input to System.out
-     * <p>
+     *
      * When we want to dispatch some object (in this case a String message) off to
      * somewhere (in this case logging to System.out), we can use the Consumer
      * interface to abstract away where we're sending it to.

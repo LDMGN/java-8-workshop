@@ -14,16 +14,16 @@ public final class Exercise002ParameterNamesDto {
     private final int id;
     private final String name;
 
-    Exercise002ParameterNamesDto(final int id, final String name) {
+    public Exercise002ParameterNamesDto(final int id, final String name) {
         this.id = id;
         this.name = name;
     }
 
-    int getId() {
+    public int getId() {
         return id;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 }

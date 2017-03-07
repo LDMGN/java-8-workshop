@@ -32,6 +32,24 @@ public class Exercise004Optional {
     }
 
     /**
+     * Return a boolean indicating whether the Optional
+     * input contains a value (value is present) or null.
+     */
+    static boolean hasValue(final Optional<Object> input) {
+        return false;
+    }
+
+    static final String SENSIBLE_DEFAULT = "DEFAULT";
+
+    /**
+     * Return the String present in the Optional. If no
+     * String is present, return SENSIBLE_DEFAULT;
+     */
+    static String getValueOrDefault(final Optional<String> input) {
+        return null;
+    }
+
+    /**
      * Return an Optional holding the value of the String
      * input. If the input String is empty, the Optional
      * should also be empty.
@@ -46,5 +64,22 @@ public class Exercise004Optional {
      */
     static Optional<String> nullSafeOptional_EmptyOptionalIfEmptyString(final String input) {
         return null;
+    }
+
+    /**
+     * Return an Optional that contains the integer value
+     * multiplied by two, if a value was present.
+     * Empty Optional in, empty Optional comes out.
+     */
+    static Optional<Integer> multiplyByTwo(final Optional<Integer> input) {
+        return input;
+    }
+
+    /**
+     * Print the value of the optional to System.out if
+     * a value is present. If no value is present, do
+     * nothing.
+     */
+    static void printValue(final Optional<String> input) {
     }
 }

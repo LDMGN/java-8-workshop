@@ -2,8 +2,7 @@ package nl.jcore.java8workshop;
 
 import java.math.BigDecimal;
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
+import java.util.stream.Collectors;
 
 public class Exercise003Streaming {
     /**
@@ -13,7 +12,7 @@ public class Exercise003Streaming {
     static List<Integer> multiplyByTwo(final List<Integer> numbers) {
         return numbers.stream()
                 /* Transformation: Multiply by two. */
-                .collect(toList());
+                .collect(Collectors.toList());
     }
 
     /**
