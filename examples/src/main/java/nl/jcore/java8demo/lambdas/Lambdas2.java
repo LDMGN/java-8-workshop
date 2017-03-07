@@ -31,7 +31,7 @@ public class Lambdas2 {
 
     public Optional<String> optionalExample(final String in) {
         return Optional.ofNullable(in)
-                .filter(String::isEmpty)
+                .filter(s -> !s.isEmpty())
                 .map(s -> "Value: " + s);
     }
 }

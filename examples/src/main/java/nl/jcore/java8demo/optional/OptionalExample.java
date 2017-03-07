@@ -20,3 +20,4 @@ public class OptionalExample {
     private void search(final Optional<String> terms, final Instant fromTime) {
     }
 }
+
