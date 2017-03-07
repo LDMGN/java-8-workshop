@@ -61,7 +61,7 @@ public class Exercise001LambdaTest {
         final String input = "FooBar";
 
         /* Act. */
-        final Consumer consumer = Exercise001Lambda.consumer();
+        final Consumer<String> consumer = Exercise001Lambda.consumer();
         consumer.accept(input);
 
         /* Assert. */
