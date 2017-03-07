@@ -1,5 +1,7 @@
 package nl.jcore.java8workshop;
 
+import nl.jcore.java8workshop.util.User;
+
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -40,5 +42,13 @@ public class Exercise003Streaming {
                 .mapToInt(x -> x)
                 /* Filter out odd numbers. */
                 .sum();
+    }
+
+    /**
+     * Return a list of addresses of users. Note that some
+     * users don't have an address.
+     */
+    static List<String> getAddressesOfUsers(final List<User> users) {
+        return null;
     }
 }
