@@ -7,43 +7,57 @@ import java.util.function.Supplier;
 
 public class Exercise001Lambda {
     /**
-     * @return supplier which returns a String containing "Hello Java 8" (without quotes)
+     * Return a Predicate which evaluates whether an input number is even.
      */
-    static Supplier<String> oldSkoolSupplier() {
-        return new Supplier() {
+    static Predicate<Integer> oldSkoolPredicate() {
+        return new Predicate<Integer>() {
             @Override
-            public String get() {
-                return "Hello Java 8";
+            public boolean test(final Integer i) {
+                return i % 2 == 0;
             }
         };
     }
 
     /**
-     * @return supplier which returns a String containing "Hello Java 8" (without quotes)
+     * Return a Predicate which evaluates whether an input number is even
+     * <p>
+     * This method could be (re-)used in lambda calculations everywhere,
+     * e.g. numbers.stream().map(predicateIsEven()).collect();
      */
-    static Supplier<String> supplier() {
+    static Predicate<Integer> predicateIsEven() {
+        /* A number is even when its remainder for modulo 2 (i % 2) is equal to zero. */
         return null;
     }
 
     /**
-     * @return consumer which prints it's String input to System.out
-     */
-    static Consumer<String> consumer() {
-        return null;
-    }
-
-    /**
-     * @return function which converts it's Integer input to a String
+     * Return a Function which converts its Integer input to a String
      */
     static Function<Integer, String> functionToString() {
         return null;
     }
 
     /**
-     * @return predicate which can tell whether an input number is even
+     * Return a Supplier which returns a String containing "Hello Java 8" (without quotes)
+     * <p>
+     * When we need an object, such as the "Hello Java 8" String, we could pass it around
+     * in our code. Using lambdas, we instead pass around a Supplier object, which serves
+     * as a factory for these objects. Two advantages:
+     * - We can make it create the wanted object many times
+     * - It will only start creating the object when executed. If the object is
+     * expensive, we can postpone execution untill we absolutely have no choice.
      */
-    static Predicate<Integer> predicateIsEven() {
-        /* A number is even when its remainder for modulo 2 (i % 2) is equal to zero. */
+    static Supplier<String> supplier() {
+        return null;
+    }
+
+    /**
+     * Return a Consumer which prints its String input to System.out
+     * <p>
+     * When we want to dispatch some object (in this case a String message) off to
+     * somewhere (in this case logging to System.out), we can use the Consumer
+     * interface to abstract away where we're sending it to.
+     */
+    static Consumer<String> consumer() {
         return null;
     }
 }

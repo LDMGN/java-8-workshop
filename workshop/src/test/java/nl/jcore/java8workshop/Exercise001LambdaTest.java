@@ -1,7 +1,5 @@
 package nl.jcore.java8workshop;
 
-import org.junit.After;
-import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -11,27 +9,51 @@ import java.io.PrintStream;
 import java.util.function.Consumer;
 
 import static junit.framework.TestCase.assertNotNull;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class Exercise001LambdaTest {
     @Test
     public void test001OldSkoolSupplier() {
-        assertNotNull("Please implement Exercise001Lambda::supplier", Exercise001Lambda.oldSkoolSupplier());
-        assertEquals("Hello Java 8", Exercise001Lambda.oldSkoolSupplier().get());
+        assertNotNull(Exercise001Lambda.oldSkoolPredicate());
+        assertTrue(Exercise001Lambda.oldSkoolPredicate().test(0));
+        assertFalse(Exercise001Lambda.oldSkoolPredicate().test(1));
+        assertTrue(Exercise001Lambda.oldSkoolPredicate().test(2));
     }
 
     @Test
-    public void test002Supplier() {
-        assertNotNull("Please implement Exercise001Lambda::supplier", Exercise001Lambda.supplier());
+    public void test002Predicate() {
+        final String method = "predicateIsEven";
+        assertNotNull(pleaseImplement(method), Exercise001Lambda.predicateIsEven());
+        assertTrue(pleaseImplement(method), WorkshopUtils.isLambda(Exercise001Lambda.predicateIsEven()));
+        assertTrue(Exercise001Lambda.predicateIsEven().test(0));
+        assertFalse(Exercise001Lambda.predicateIsEven().test(1));
+        assertTrue(Exercise001Lambda.predicateIsEven().test(2));
+    }
+
+    @Test
+    public void test003Function() {
+        final String method = "functionToString";
+        assertNotNull(pleaseImplement(method), Exercise001Lambda.functionToString());
+        assertTrue(pleaseImplement(method), WorkshopUtils.isLambda(Exercise001Lambda.functionToString()));
+        assertEquals("0", Exercise001Lambda.functionToString().apply(0));
+        assertEquals("1", Exercise001Lambda.functionToString().apply(1));
+        assertEquals("12", Exercise001Lambda.functionToString().apply(12));
+    }
+
+    @Test
+    public void test004Supplier() {
+        final String method = "supplier";
+        assertNotNull(pleaseImplement(method), Exercise001Lambda.supplier());
+        assertTrue(pleaseImplement(method), WorkshopUtils.isLambda(Exercise001Lambda.supplier()));
         assertEquals("Hello Java 8", Exercise001Lambda.supplier().get());
     }
 
     @Test
-    public void test003Consumer() {
-        assertNotNull("Please implement Exercise001Lambda::consumer", Exercise001Lambda.consumer());
+    public void test005Consumer() {
+        final String method = "consumer";
+        assertNotNull(pleaseImplement(method), Exercise001Lambda.consumer());
+        assertTrue(pleaseImplement(method), WorkshopUtils.isLambda(Exercise001Lambda.consumer()));
 
         /* Arrange. */
         final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -46,19 +68,7 @@ public class Exercise001LambdaTest {
         assertEquals(input.trim(), outContent.toString().trim());
     }
 
-    @Test
-    public void test004Function() {
-        assertNotNull("Please implement Exercise001Lambda::functionToString", Exercise001Lambda.functionToString());
-        assertEquals("0", Exercise001Lambda.functionToString().apply(0));
-        assertEquals("1", Exercise001Lambda.functionToString().apply(1));
-        assertEquals("12", Exercise001Lambda.functionToString().apply(12));
-    }
-
-    @Test
-    public void test005Predicate(){
-        assertNotNull(Exercise001Lambda.predicateIsEven());
-        assertTrue(Exercise001Lambda.predicateIsEven().test(0));
-        assertFalse(Exercise001Lambda.predicateIsEven().test(1));
-        assertTrue(Exercise001Lambda.predicateIsEven().test(2));
+    private String pleaseImplement(final String methodStringReference) {
+        return "Please implement Exercise001Lambda::" + methodStringReference + " using a Lambda";
     }
 }

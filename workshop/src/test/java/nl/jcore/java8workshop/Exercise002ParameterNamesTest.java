@@ -7,8 +7,14 @@ import java.lang.reflect.Parameter;
 import static org.junit.Assert.assertEquals;
 
 /**
- * To make this pass, add <compilerArgument>-parameters</compilerArgument> to the configuration node of the
- * maven-compiler-plugin in the parent pom.xml
+ * To make the test corresponding to this class pass, add
+ * <compilerArgument>-parameters</compilerArgument> to the
+ * configuration node of the maven-compiler-plugin in the
+ * parent pom.xml.
+ *
+ * If this doesn't work, you might need to execute the
+ * Maven goal "clean" and run the plugins compiler:compile
+ * and compiler:testCompile.
  */
 public class Exercise002ParameterNamesTest {
     @Test
