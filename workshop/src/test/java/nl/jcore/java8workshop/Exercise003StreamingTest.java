@@ -1,5 +1,7 @@
 package nl.jcore.java8workshop;
 
+import nl.jcore.java8workshop.util.Address;
+import nl.jcore.java8workshop.util.User;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -37,6 +39,24 @@ public class Exercise003StreamingTest {
     @Test
     public void test004IntstreamSumOfEvens() {
         assertEquals(90, Exercise003Streaming.sumOfEvenNumbersInCollection(getRangeClosed(0, 19)));
+    }
+
+    @Test
+    public void test005GetAddressesOfUsers() {
+        final User dirk = new User(1, "Dirk Demo", 32, new Address("Hoofdstraat", 25));
+        final User petra = new User(1, "Petra Presentatie", 28);
+        final User victor = new User(1, "Victor Voorsteling", 19, new Address("Kerkstraat", 1));
+        final User willem = new User(1, "Willem Workshop", 48);
+        test005GetAddressesOfUsers(Arrays.asList(dirk, petra, victor, willem),
+                Arrays.asList(dirk.getAddress().get().toString(), victor.getAddress().get().toString()));
+        test005GetAddressesOfUsers(Arrays.asList(dirk, petra, victor),
+                Arrays.asList(dirk.getAddress().get().toString(), victor.getAddress().get().toString()));
+        test005GetAddressesOfUsers(Arrays.asList(dirk, petra),
+                Arrays.asList(dirk.getAddress().get().toString()));
+    }
+
+    private void test005GetAddressesOfUsers(final List<User> users, final List<String> addresses) {
+        assertEquals(addresses, Exercise003Streaming.getAddressesOfUsers(users));
     }
 
     private List<BigDecimal> bigDecimalList(final Integer... numbers) {

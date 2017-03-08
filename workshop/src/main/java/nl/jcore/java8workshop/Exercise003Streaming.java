@@ -1,9 +1,10 @@
 package nl.jcore.java8workshop;
 
+import nl.jcore.java8workshop.util.User;
+
 import java.math.BigDecimal;
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
+import java.util.stream.Collectors;
 
 public class Exercise003Streaming {
     /**
@@ -13,7 +14,7 @@ public class Exercise003Streaming {
     static List<Integer> multiplyByTwo(final List<Integer> numbers) {
         return numbers.stream()
                 /* Transformation: Multiply by two. */
-                .collect(toList());
+                .collect(Collectors.toList());
     }
 
     /**
@@ -41,5 +42,15 @@ public class Exercise003Streaming {
                 .mapToInt(x -> x)
                 /* Filter out odd numbers. */
                 .sum();
+    }
+
+    /**
+     * Return a list of addresses of users. Note that some
+     * users don't have an address.
+     * Addresses should be in the format
+     * "street<space>housenumber" (without quotes).
+     */
+    static List<String> getAddressesOfUsers(final List<User> users) {
+        return null;
     }
 }
