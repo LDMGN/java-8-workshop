@@ -19,11 +19,15 @@ import static org.junit.Assert.assertEquals;
 public class Exercise005TimeTest {
     private static final String TIMEZONE_EUROPE_AMSTERDAM = "Europe/Amsterdam";
     private static final Instant FOURTH_OF_FEBRUARY = Instant.ofEpochMilli(1486162800000L);
+    private static final Instant WORKSHOP_DAY = Instant.ofEpochMilli(1488927600000L);
 
     @Test
     public void test001GetLocalDate() {
-        final Clock clock = Clock.fixed(FOURTH_OF_FEBRUARY, ZoneId.of(TIMEZONE_EUROPE_AMSTERDAM));
-        assertEquals(LocalDate.of(2017, 2, 4), Exercise005Time.getLocalDateOfToday(clock));
+        final Clock clockA = Clock.fixed(WORKSHOP_DAY, ZoneId.of(TIMEZONE_EUROPE_AMSTERDAM));
+        assertEquals(LocalDate.of(2017, 3,8), Exercise005Time.getLocalDateOfToday(clockA));
+
+        final Clock clockB = Clock.fixed(FOURTH_OF_FEBRUARY, ZoneId.of(TIMEZONE_EUROPE_AMSTERDAM));
+        assertEquals(LocalDate.of(2017, 2, 4), Exercise005Time.getLocalDateOfToday(clockB));
     }
 
     @Test

@@ -12,7 +12,14 @@ import java.time.temporal.TemporalUnit;
 
 public class Exercise005Time {
     /**
-     * Return the LocalDate of today.
+     * Return the LocalDate of today. Using the clock
+     * object here makes time and timing testable. In
+     * a test you can simply mock a clock with a fixed
+     * time. The clock can freeze or tick whenever the
+     * test requires it to.
+     *
+     * This is why LocalDate.of(2017, 3, 8); won't
+     * work as a solution here ;)
      */
     static LocalDate getLocalDateOfToday(final Clock clock) {
         return null;
