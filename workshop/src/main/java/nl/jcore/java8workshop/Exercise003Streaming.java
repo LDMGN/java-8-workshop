@@ -1,9 +1,11 @@
 package nl.jcore.java8workshop;
 
+import nl.jcore.java8workshop.util.Address;
 import nl.jcore.java8workshop.util.User;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Exercise003Streaming {
@@ -14,6 +16,7 @@ public class Exercise003Streaming {
     static List<Integer> multiplyByTwo(final List<Integer> numbers) {
         return numbers.stream()
                 /* Transformation: Multiply by two. */
+                .map(i -> i * 2)
                 .collect(Collectors.toList());
     }
 
@@ -22,7 +25,9 @@ public class Exercise003Streaming {
      * equivalent values of the integer input list.
      */
     static List<String> getStringValues(final List<Integer> numbers) {
-        return null;
+        return numbers.stream()
+                .map(String::valueOf)
+                .collect(Collectors.toList());
     }
 
     /**
@@ -30,7 +35,9 @@ public class Exercise003Streaming {
      * number 5, such as 50, 5 and 0.5.
      */
     static List<BigDecimal> getNumbersContaining5(final List<BigDecimal> numbers) {
-        return null;
+        return numbers.stream()
+                .filter(i -> i.toString().contains("5"))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -41,6 +48,7 @@ public class Exercise003Streaming {
         return numbers.stream()
                 .mapToInt(x -> x)
                 /* Filter out odd numbers. */
+                .filter(i -> i % 2 == 0)
                 .sum();
     }
 
@@ -51,6 +59,11 @@ public class Exercise003Streaming {
      * "street<space>housenumber" (without quotes).
      */
     static List<String> getAddressesOfUsers(final List<User> users) {
-        return null;
+        return users.stream()
+                .filter(User::hasAddress)
+                .map(User::getAddress)
+                .map(Optional::get)
+                .map(Address::toString)
+                .collect(Collectors.toList());
     }
 }

@@ -16,7 +16,7 @@ public class Exercise004Optional {
      * execution should halt if it does occur. Fail fast.
      */
     static Optional<String> returnOptional(@Nonnull final String input) {
-        return null;
+        return Optional.of(input);
     }
 
     /**
@@ -30,7 +30,7 @@ public class Exercise004Optional {
      * handle an Optional.empty() appropriately.
      */
     static Optional<String> nullSafeOptional(@Nullable final String input) {
-        return null;
+        return Optional.ofNullable(input);
     }
 
     /**
@@ -38,7 +38,7 @@ public class Exercise004Optional {
      * input contains a value (value is present) or null.
      */
     static boolean hasValue(final Optional<Object> input) {
-        return false;
+        return input.isPresent();
     }
 
     static final String SENSIBLE_DEFAULT = "DEFAULT";
@@ -48,7 +48,7 @@ public class Exercise004Optional {
      * String is present, return SENSIBLE_DEFAULT;
      */
     static String getValueOrDefault(final Optional<String> input) {
-        return null;
+        return input.orElse(SENSIBLE_DEFAULT);
     }
 
     /**
@@ -65,7 +65,8 @@ public class Exercise004Optional {
      * the outcome of the lambda.
      */
     static Optional<String> nullSafeOptional_EmptyOptionalIfEmptyString(@Nullable final String input) {
-        return null;
+        return Optional.ofNullable(input)
+                .filter(s -> !s.isEmpty());
     }
 
     /**
@@ -74,7 +75,8 @@ public class Exercise004Optional {
      * Empty Optional in, empty Optional comes out.
      */
     static Optional<Integer> multiplyByTwo(final Optional<Integer> input) {
-        return input;
+        return input
+                .map(i -> i * 2);
     }
 
     /**
@@ -83,5 +85,6 @@ public class Exercise004Optional {
      * nothing.
      */
     static void printValue(final Optional<String> input) {
+        input.ifPresent(System.out::println);
     }
 }
