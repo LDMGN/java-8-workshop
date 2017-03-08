@@ -15,7 +15,7 @@ public class Exercise004Optional {
      * express that we do not expect a null value and that
      * execution should halt if it does occur. Fail fast.
      */
-    static Optional<String> returnOptional(@Nonnull final String input) {
+    static Optional<String> returnOptional(final String input) {
         return null;
     }
 
